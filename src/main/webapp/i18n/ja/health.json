@@ -1,0 +1,31 @@
+{
+  "health": {
+    "title": "ヘルスチェック",
+    "refresh.button": "リロード",
+    "stacktrace": "スタックトレース",
+    "details": {
+      "details": "Details",
+      "properties": "Properties",
+      "name": "Name",
+      "value": "Value",
+      "error": "Error"
+    },
+    "indicator": {
+      "diskSpace": "ディスクスペース",
+      "mail": "メール",
+      "livenessState": "Liveness state",
+      "readinessState": "Readiness state",
+      "ping": "Application",
+      "db": "データベース"
+    },
+    "table": {
+      "service": "サービス名",
+      "status": "ステータス"
+    },
+    "status": {
+      "UNKNOWN": "UNKNOWN",
+      "UP": "UP",
+      "DOWN": "DOWN"
+    }
+  }
+}

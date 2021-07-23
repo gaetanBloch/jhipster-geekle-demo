@@ -111,6 +111,7 @@ module.exports = (config, options, targetOptions) => {
         groupBy: [
           { pattern: './src/main/webapp/i18n/en/*.json', fileName: './i18n/en.json' },
           { pattern: './src/main/webapp/i18n/fr/*.json', fileName: './i18n/fr.json' },
+          { pattern: './src/main/webapp/i18n/ja/*.json', fileName: './i18n/ja.json' },
           // jhipster-needle-i18n-language-webpack - JHipster will add/remove languages in this array
         ],
       },
@@ -118,7 +119,29 @@ module.exports = (config, options, targetOptions) => {
   );
 
   config = merge(
-    config
+    config,
+    targetOptions.configuration === 'instrumenter'
+      ? {
+          module: {
+            rules: [
+              {
+                test: /\.(js|ts)$/,
+                use: [
+                  {
+                    loader: 'babel-loader',
+                    options: {
+                      plugins: ['istanbul'],
+                    },
+                  },
+                ],
+                enforce: 'post',
+                include: path.resolve(__dirname, '../src/main/webapp/'),
+                exclude: [/\.(e2e|spec)\.ts$/, /node_modules/, /(ngfactory|ngstyle)\.js/],
+              },
+            ],
+          },
+        }
+      : {}
     // jhipster-needle-add-webpack-config - JHipster will add custom config
   );
 
