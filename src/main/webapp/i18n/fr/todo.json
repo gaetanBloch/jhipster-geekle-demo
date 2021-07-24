@@ -1,0 +1,33 @@
+{
+  "todoDemoApp": {
+    "todo": {
+      "home": {
+        "title": "Todos",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Todo",
+        "createOrEditLabel": "Créer ou éditer un Todo",
+        "notFound": "Aucun Todo trouvé"
+      },
+      "created": "Un nouveau Todo a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Todo avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Todo avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Todo {{ id }} ?"
+      },
+      "detail": {
+        "title": "Todo"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "completed": "Completed",
+      "progress": "Progress",
+      "order": "Order",
+      "priority": "Priority",
+      "dueDate": "Due Date",
+      "category": "Category",
+      "todoList": "Todo List",
+      "tags": "Tags"
+    }
+  }
+}

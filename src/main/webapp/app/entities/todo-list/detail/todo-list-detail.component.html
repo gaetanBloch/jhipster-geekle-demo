@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="todoList">
+      <h2 data-cy="todoListDetailsHeading"><span jhiTranslate="todoDemoApp.todoList.detail.title">Todo List</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ todoList.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="todoDemoApp.todoList.title">Title</span></dt>
+        <dd>
+          <span>{{ todoList.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="todoDemoApp.todoList.user">User</span></dt>
+        <dd>
+          <span>{{ todoList.user?.login }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/todo-list', todoList.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

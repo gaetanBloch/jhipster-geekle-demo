@@ -1,0 +1,33 @@
+{
+  "todoDemoApp": {
+    "todo": {
+      "home": {
+        "title": "Todos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Todo を追加",
+        "createOrEditLabel": "Todoを追加または編集",
+        "notFound": "No Todos found"
+      },
+      "created": "A new Todo is created with identifier {{ param }}",
+      "updated": "A Todo is updated with identifier {{ param }}",
+      "deleted": "A Todo is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Todo {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Todo"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "completed": "Completed",
+      "progress": "Progress",
+      "order": "Order",
+      "priority": "Priority",
+      "dueDate": "Due Date",
+      "category": "Category",
+      "todoList": "Todo List",
+      "tags": "Tags"
+    }
+  }
+}

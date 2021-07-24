@@ -1,0 +1,25 @@
+{
+  "todoDemoApp": {
+    "tag": {
+      "home": {
+        "title": "Tags",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Tag を追加",
+        "createOrEditLabel": "Tagを追加または編集",
+        "notFound": "No Tags found"
+      },
+      "created": "A new Tag is created with identifier {{ param }}",
+      "updated": "A Tag is updated with identifier {{ param }}",
+      "deleted": "A Tag is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Tag {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Tag"
+      },
+      "id": "ID",
+      "name": "Name",
+      "todos": "Todos"
+    }
+  }
+}

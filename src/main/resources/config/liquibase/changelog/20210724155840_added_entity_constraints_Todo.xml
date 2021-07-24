@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity Todo.
+    -->
+    <changeSet id="20210724155840-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="category_id"
+                                 baseTableName="todo"
+                                 constraintName="fk_todo__category_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="category"/>
+
+        <addForeignKeyConstraint baseColumnNames="todo_list_id"
+                                 baseTableName="todo"
+                                 constraintName="fk_todo__todo_list_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="todo_list"/>
+
+        <addForeignKeyConstraint baseColumnNames="todo_id"
+                                 baseTableName="rel_todo__tags"
+                                 constraintName="fk_rel_todo__tags__todo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="todo"/>
+
+        <addForeignKeyConstraint baseColumnNames="tags_id"
+                                 baseTableName="rel_todo__tags"
+                                 constraintName="fk_rel_todo__tags__tags_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tag"/>
+    </changeSet>
+</databaseChangeLog>

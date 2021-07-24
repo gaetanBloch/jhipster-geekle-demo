@@ -1,0 +1,26 @@
+{
+  "todoDemoApp": {
+    "todoList": {
+      "home": {
+        "title": "TodoLists",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Todo List",
+        "createOrEditLabel": "Créer ou éditer un Todo List",
+        "notFound": "Aucun Todo List trouvé"
+      },
+      "created": "Un nouveau Todo List a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Todo List avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Todo List avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Todo List {{ id }} ?"
+      },
+      "detail": {
+        "title": "Todo List"
+      },
+      "id": "ID",
+      "title": "Title",
+      "user": "User",
+      "todos": "Todos"
+    }
+  }
+}

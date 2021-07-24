@@ -1,0 +1,30 @@
+{
+  "name": "Tag",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique", "minlength"],
+      "fieldValidateRulesMinlength": "3"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "todo",
+      "otherEntityRelationshipName": "tags",
+      "relationshipName": "todos",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "tag",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210724155842"
+}

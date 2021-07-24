@@ -1,0 +1,191 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-todo-heading" data-cy="TodoCreateUpdateHeading" jhiTranslate="todoDemoApp.todo.home.createOrEditLabel">
+        Create or edit a Todo
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="todoDemoApp.todo.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('name')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 3 }"
+            >
+              This field is required to be at least 3 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="todoDemoApp.todo.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+          <div *ngIf="editForm.get('description')!.invalid && (editForm.get('description')!.dirty || editForm.get('description')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('description')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 3 }"
+            >
+              This field is required to be at least 3 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="todoDemoApp.todo.completed" for="field_completed">Completed</label>
+          <input type="checkbox" class="form-check" name="completed" id="field_completed" data-cy="completed" formControlName="completed" />
+          <div *ngIf="editForm.get('completed')!.invalid && (editForm.get('completed')!.dirty || editForm.get('completed')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('completed')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="todoDemoApp.todo.progress" for="field_progress">Progress</label>
+          <input type="number" class="form-control" name="progress" id="field_progress" data-cy="progress" formControlName="progress" />
+          <div *ngIf="editForm.get('progress')!.invalid && (editForm.get('progress')!.dirty || editForm.get('progress')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('progress')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('progress')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="todoDemoApp.todo.order" for="field_order">Order</label>
+          <input type="number" class="form-control" name="order" id="field_order" data-cy="order" formControlName="order" />
+          <div *ngIf="editForm.get('order')!.invalid && (editForm.get('order')!.dirty || editForm.get('order')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('order')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('order')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="todoDemoApp.todo.priority" for="field_priority">Priority</label>
+          <select class="form-control" name="priority" formControlName="priority" id="field_priority" data-cy="priority">
+            <option [ngValue]="null">{{ 'todoDemoApp.Priority.null' | translate }}</option>
+            <option value="HIGH">{{ 'todoDemoApp.Priority.HIGH' | translate }}</option>
+            <option value="MEDIUM">{{ 'todoDemoApp.Priority.MEDIUM' | translate }}</option>
+            <option value="LOW">{{ 'todoDemoApp.Priority.LOW' | translate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="todoDemoApp.todo.dueDate" for="field_dueDate">Due Date</label>
+          <div class="d-flex">
+            <input
+              id="field_dueDate"
+              data-cy="dueDate"
+              type="datetime-local"
+              class="form-control"
+              name="dueDate"
+              formControlName="dueDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="todoDemoApp.todo.category" for="field_category">Category</label>
+          <select class="form-control" id="field_category" data-cy="category" name="category" formControlName="category">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="categoryOption.id === editForm.get('category')!.value?.id ? editForm.get('category')!.value : categoryOption"
+              *ngFor="let categoryOption of categoriesSharedCollection; trackBy: trackCategoryById"
+            >
+              {{ categoryOption.name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="todoDemoApp.todo.todoList" for="field_todoList">Todo List</label>
+          <select class="form-control" id="field_todoList" data-cy="todoList" name="todoList" formControlName="todoList">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="todoListOption.id === editForm.get('todoList')!.value?.id ? editForm.get('todoList')!.value : todoListOption"
+              *ngFor="let todoListOption of todoListsSharedCollection; trackBy: trackTodoListById"
+            >
+              {{ todoListOption.title }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label jhiTranslate="todoDemoApp.todo.tags" for="field_tags">Tags</label>
+          <select class="form-control" id="field_tags" data-cy="tags" multiple name="tags" formControlName="tags">
+            <option
+              [ngValue]="getSelectedTag(tagOption, editForm.get('tags')!.value)"
+              *ngFor="let tagOption of tagsSharedCollection; trackBy: trackTagById"
+            >
+              {{ tagOption.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

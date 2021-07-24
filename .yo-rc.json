@@ -43,6 +43,8 @@
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
     "languages": ["en", "fr", "ja"],
-    "cypressCoverage": true
+    "cypressCoverage": true,
+    "entities": ["TodoList", "Todo", "Category", "Tag"],
+    "lastLiquibaseTimestamp": 1627142322000
   }
 }

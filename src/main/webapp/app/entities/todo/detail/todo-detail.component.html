@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="todo">
+      <h2 data-cy="todoDetailsHeading"><span jhiTranslate="todoDemoApp.todo.detail.title">Todo</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ todo.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="todoDemoApp.todo.name">Name</span></dt>
+        <dd>
+          <span>{{ todo.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="todoDemoApp.todo.description">Description</span></dt>
+        <dd>
+          <span>{{ todo.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="todoDemoApp.todo.completed">Completed</span></dt>
+        <dd>
+          <span>{{ todo.completed }}</span>
+        </dd>
+        <dt><span jhiTranslate="todoDemoApp.todo.progress">Progress</span></dt>
+        <dd>
+          <span>{{ todo.progress }}</span>
+        </dd>
+        <dt><span jhiTranslate="todoDemoApp.todo.order">Order</span></dt>
+        <dd>
+          <span>{{ todo.order }}</span>
+        </dd>
+        <dt><span jhiTranslate="todoDemoApp.todo.priority">Priority</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'todoDemoApp.Priority.' + todo.priority }}">{{ todo.priority }}</span>
+        </dd>
+        <dt><span jhiTranslate="todoDemoApp.todo.dueDate">Due Date</span></dt>
+        <dd>
+          <span>{{ todo.dueDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="todoDemoApp.todo.category">Category</span></dt>
+        <dd>
+          <div *ngIf="todo.category">
+            <a [routerLink]="['/category', todo.category?.id, 'view']">{{ todo.category?.name }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="todoDemoApp.todo.todoList">Todo List</span></dt>
+        <dd>
+          <div *ngIf="todo.todoList">
+            <a [routerLink]="['/todo-list', todo.todoList?.id, 'view']">{{ todo.todoList?.title }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="todoDemoApp.todo.tags">Tags</span></dt>
+        <dd>
+          <span *ngFor="let tags of todo.tags; let last = last">
+            <a [routerLink]="['/tag', tags?.id, 'view']">{{ tags.name }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/todo', todo.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

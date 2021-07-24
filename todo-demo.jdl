@@ -1,0 +1,48 @@
+entity TodoList {
+	title String required unique minlength(3),
+}
+
+entity Todo {
+	name String required minlength(3),
+    description String minlength(3),
+	completed Boolean required,
+    progress Integer min(0),
+    order Integer min(0),
+    priority Priority,
+    dueDate Instant
+}
+
+entity Category {
+	name String required unique minlength(3),
+    description String required minlength(3)
+}
+
+entity Tag {
+	name String required unique minlength(3),
+}
+
+enum Priority {
+	HIGH,
+    MEDIUM,
+    LOW
+}
+
+relationship OneToOne {
+  TodoList{user(login)} to User{todoList(title)}
+}
+
+relationship ManyToOne {
+  Todo{category(name)} to Category{todos}
+  Todo{todoList(title)} to TodoList{todos}
+}
+
+relationship ManyToMany {
+  Todo{tags(name)} to Tag{todos}
+}
+
+dto * with mapstruct
+
+paginate Todo, Category, Tag with infinite-scroll
+
+service * with serviceImpl
+    

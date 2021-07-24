@@ -1,0 +1,26 @@
+{
+  "todoDemoApp": {
+    "category": {
+      "home": {
+        "title": "Categories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Category を追加",
+        "createOrEditLabel": "Categoryを追加または編集",
+        "notFound": "No Categories found"
+      },
+      "created": "A new Category is created with identifier {{ param }}",
+      "updated": "A Category is updated with identifier {{ param }}",
+      "deleted": "A Category is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Category {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Category"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "todos": "Todos"
+    }
+  }
+}
