@@ -1,7 +1,7 @@
 import * as dayjs from 'dayjs';
 import { ICategory } from 'app/entities/category/category.model';
-import { ITodoList } from 'app/entities/todo-list/todo-list.model';
 import { ITag } from 'app/entities/tag/tag.model';
+import { ITodoList } from 'app/entities/todo-list/todo-list.model';
 import { Priority } from 'app/entities/enumerations/priority.model';
 
 export interface ITodo {
@@ -14,8 +14,8 @@ export interface ITodo {
   priority?: Priority | null;
   dueDate?: dayjs.Dayjs | null;
   category?: ICategory | null;
-  todoList?: ITodoList | null;
   tags?: ITag[] | null;
+  todoList?: ITodoList | null;
 }
 
 export class Todo implements ITodo {
@@ -29,8 +29,8 @@ export class Todo implements ITodo {
     public priority?: Priority | null,
     public dueDate?: dayjs.Dayjs | null,
     public category?: ICategory | null,
-    public todoList?: ITodoList | null,
-    public tags?: ITag[] | null
+    public tags?: ITag[] | null,
+    public todoList?: ITodoList | null
   ) {
     this.completed = this.completed ?? false;
   }

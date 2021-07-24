@@ -44,24 +44,23 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "category",
-      "otherEntityRelationshipName": "todos",
+      "otherEntityRelationshipName": "todo",
       "relationshipName": "category",
       "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "tag",
+      "otherEntityRelationshipName": "todo",
+      "relationshipName": "tag",
+      "otherEntityField": "name",
+      "ownerSide": true
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "todoList",
       "otherEntityRelationshipName": "todos",
-      "relationshipName": "todoList",
-      "otherEntityField": "title"
-    },
-    {
-      "relationshipType": "many-to-many",
-      "otherEntityName": "tag",
-      "otherEntityRelationshipName": "todos",
-      "relationshipName": "tags",
-      "otherEntityField": "name",
-      "ownerSide": true
+      "relationshipName": "todoList"
     }
   ],
   "entityTableName": "todo",

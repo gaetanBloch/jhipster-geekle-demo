@@ -19,7 +19,7 @@
       },
       "id": "ID",
       "name": "Name",
-      "todos": "Todos"
+      "todo": "Todo"
     }
   }
 }

@@ -48,8 +48,8 @@
 
     <changeSet id="20210724155840-1-relations" author="jhipster">
 
-        <createTable tableName="rel_todo__tags">
-            <column name="tags_id" type="bigint">
+        <createTable tableName="rel_todo__tag">
+            <column name="tag_id" type="bigint">
                 <constraints nullable="false"/>
             </column>
             <column name="todo_id" type="bigint">
@@ -57,7 +57,7 @@
             </column>
         </createTable>
 
-        <addPrimaryKey columnNames="todo_id, tags_id" tableName="rel_todo__tags"/>
+        <addPrimaryKey columnNames="todo_id, tag_id" tableName="rel_todo__tag"/>
     </changeSet>
 
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->

@@ -31,7 +31,7 @@ public class TodoList implements Serializable {
     private User user;
 
     @OneToMany(mappedBy = "todoList")
-    @JsonIgnoreProperties(value = { "category", "todoList", "tags" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "category", "tags", "todoList" }, allowSetters = true)
     private Set<Todo> todos = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

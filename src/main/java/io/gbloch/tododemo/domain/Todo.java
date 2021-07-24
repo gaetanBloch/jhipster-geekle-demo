@@ -52,17 +52,16 @@ public class Todo implements Serializable {
     private Instant dueDate;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "todos" }, allowSetters = true)
     private Category category;
+
+    @ManyToMany
+    @JoinTable(name = "rel_todo__tag", joinColumns = @JoinColumn(name = "todo_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
+    @JsonIgnoreProperties(value = { "todos" }, allowSetters = true)
+    private Set<Tag> tags = new HashSet<>();
 
     @ManyToOne
     @JsonIgnoreProperties(value = { "user", "todos" }, allowSetters = true)
     private TodoList todoList;
-
-    @ManyToMany
-    @JoinTable(name = "rel_todo__tags", joinColumns = @JoinColumn(name = "todo_id"), inverseJoinColumns = @JoinColumn(name = "tags_id"))
-    @JsonIgnoreProperties(value = { "todos" }, allowSetters = true)
-    private Set<Tag> tags = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -182,6 +181,31 @@ public class Todo implements Serializable {
         this.category = category;
     }
 
+    public Set<Tag> getTags() {
+        return this.tags;
+    }
+
+    public Todo tags(Set<Tag> tags) {
+        this.setTags(tags);
+        return this;
+    }
+
+    public Todo addTag(Tag tag) {
+        this.tags.add(tag);
+        tag.getTodos().add(this);
+        return this;
+    }
+
+    public Todo removeTag(Tag tag) {
+        this.tags.remove(tag);
+        tag.getTodos().remove(this);
+        return this;
+    }
+
+    public void setTags(Set<Tag> tags) {
+        this.tags = tags;
+    }
+
     public TodoList getTodoList() {
         return this.todoList;
     }
@@ -193,31 +217,6 @@ public class Todo implements Serializable {
 
     public void setTodoList(TodoList todoList) {
         this.todoList = todoList;
-    }
-
-    public Set<Tag> getTags() {
-        return this.tags;
-    }
-
-    public Todo tags(Set<Tag> tags) {
-        this.setTags(tags);
-        return this;
-    }
-
-    public Todo addTags(Tag tag) {
-        this.tags.add(tag);
-        tag.getTodos().add(this);
-        return this;
-    }
-
-    public Todo removeTags(Tag tag) {
-        this.tags.remove(tag);
-        tag.getTodos().remove(this);
-        return this;
-    }
-
-    public void setTags(Set<Tag> tags) {
-        this.tags = tags;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

@@ -114,9 +114,9 @@ describe('Todo e2e test', () => {
 
     cy.setFieldSelectToLastOfEntity('category');
 
-    cy.setFieldSelectToLastOfEntity('todoList');
+    cy.setFieldSelectToLastOfEntity('tag');
 
-    cy.setFieldSelectToLastOfEntity('tags');
+    cy.setFieldSelectToLastOfEntity('todoList');
 
     cy.get(entityCreateSaveButtonSelector).click({ force: true });
     cy.scrollTo('top', { ensureScrollable: false });

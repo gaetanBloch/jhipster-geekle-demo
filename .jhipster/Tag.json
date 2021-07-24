@@ -12,8 +12,8 @@
     {
       "relationshipType": "many-to-many",
       "otherEntityName": "todo",
-      "otherEntityRelationshipName": "tags",
-      "relationshipName": "todos",
+      "otherEntityRelationshipName": "tag",
+      "relationshipName": "todo",
       "ownerSide": false
     }
   ],

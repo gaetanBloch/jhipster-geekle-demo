@@ -37,9 +37,9 @@ public class TodoDTO implements Serializable {
 
     private CategoryDTO category;
 
-    private TodoListDTO todoList;
-
     private Set<TagDTO> tags = new HashSet<>();
+
+    private TodoListDTO todoList;
 
     public Long getId() {
         return id;
@@ -113,20 +113,20 @@ public class TodoDTO implements Serializable {
         this.category = category;
     }
 
-    public TodoListDTO getTodoList() {
-        return todoList;
-    }
-
-    public void setTodoList(TodoListDTO todoList) {
-        this.todoList = todoList;
-    }
-
     public Set<TagDTO> getTags() {
         return tags;
     }
 
     public void setTags(Set<TagDTO> tags) {
         this.tags = tags;
+    }
+
+    public TodoListDTO getTodoList() {
+        return todoList;
+    }
+
+    public void setTodoList(TodoListDTO todoList) {
+        this.todoList = todoList;
     }
 
     @Override
@@ -163,8 +163,8 @@ public class TodoDTO implements Serializable {
             ", priority='" + getPriority() + "'" +
             ", dueDate='" + getDueDate() + "'" +
             ", category=" + getCategory() +
-            ", todoList=" + getTodoList() +
             ", tags=" + getTags() +
+            ", todoList=" + getTodoList() +
             "}";
     }
 }

@@ -146,6 +146,18 @@
         </div>
 
         <div class="form-group">
+          <label jhiTranslate="todoDemoApp.todo.tag" for="field_tags">Tag</label>
+          <select class="form-control" id="field_tags" data-cy="tag" multiple name="tags" formControlName="tags">
+            <option
+              [ngValue]="getSelectedTag(tagOption, editForm.get('tags')!.value)"
+              *ngFor="let tagOption of tagsSharedCollection; trackBy: trackTagById"
+            >
+              {{ tagOption.name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
           <label class="form-control-label" jhiTranslate="todoDemoApp.todo.todoList" for="field_todoList">Todo List</label>
           <select class="form-control" id="field_todoList" data-cy="todoList" name="todoList" formControlName="todoList">
             <option [ngValue]="null"></option>
@@ -153,19 +165,7 @@
               [ngValue]="todoListOption.id === editForm.get('todoList')!.value?.id ? editForm.get('todoList')!.value : todoListOption"
               *ngFor="let todoListOption of todoListsSharedCollection; trackBy: trackTodoListById"
             >
-              {{ todoListOption.title }}
-            </option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label jhiTranslate="todoDemoApp.todo.tags" for="field_tags">Tags</label>
-          <select class="form-control" id="field_tags" data-cy="tags" multiple name="tags" formControlName="tags">
-            <option
-              [ngValue]="getSelectedTag(tagOption, editForm.get('tags')!.value)"
-              *ngFor="let tagOption of tagsSharedCollection; trackBy: trackTagById"
-            >
-              {{ tagOption.name }}
+              {{ todoListOption.id }}
             </option>
           </select>
         </div>

@@ -48,18 +48,18 @@
             <a [routerLink]="['/category', todo.category?.id, 'view']">{{ todo.category?.name }}</a>
           </div>
         </dd>
+        <dt><span jhiTranslate="todoDemoApp.todo.tag">Tag</span></dt>
+        <dd>
+          <span *ngFor="let tag of todo.tags; let last = last">
+            <a [routerLink]="['/tag', tag?.id, 'view']">{{ tag.name }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
         <dt><span jhiTranslate="todoDemoApp.todo.todoList">Todo List</span></dt>
         <dd>
           <div *ngIf="todo.todoList">
-            <a [routerLink]="['/todo-list', todo.todoList?.id, 'view']">{{ todo.todoList?.title }}</a>
+            <a [routerLink]="['/todo-list', todo.todoList?.id, 'view']">{{ todo.todoList?.id }}</a>
           </div>
-        </dd>
-        <dt><span jhiTranslate="todoDemoApp.todo.tags">Tags</span></dt>
-        <dd>
-          <span *ngFor="let tags of todo.tags; let last = last">
-            <a [routerLink]="['/tag', tags?.id, 'view']">{{ tags.name }}</a
-            >{{ last ? '' : ', ' }}
-          </span>
         </dd>
       </dl>
 

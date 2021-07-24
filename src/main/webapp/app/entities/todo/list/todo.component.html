@@ -53,7 +53,7 @@
           <th scope="col" jhiSortBy="category.name">
             <span jhiTranslate="todoDemoApp.todo.category">Category</span> <fa-icon icon="sort"></fa-icon>
           </th>
-          <th scope="col" jhiSortBy="todoList.title">
+          <th scope="col" jhiSortBy="todoList.id">
             <span jhiTranslate="todoDemoApp.todo.todoList">Todo List</span> <fa-icon icon="sort"></fa-icon>
           </th>
           <th scope="col"></th>
@@ -78,7 +78,7 @@
           </td>
           <td>
             <div *ngIf="todo.todoList">
-              <a [routerLink]="['/todo-list', todo.todoList?.id, 'view']">{{ todo.todoList?.title }}</a>
+              <a [routerLink]="['/todo-list', todo.todoList?.id, 'view']">{{ todo.todoList?.id }}</a>
             </div>
           </td>
           <td class="text-right">

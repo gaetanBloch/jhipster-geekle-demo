@@ -32,12 +32,15 @@ relationship OneToOne {
 }
 
 relationship ManyToOne {
-  Todo{category(name)} to Category{todos}
-  Todo{todoList(title)} to TodoList{todos}
+  Todo{category(name)} to Category
+}
+
+relationship OneToMany {
+  TodoList{todos(name)} to Todo
 }
 
 relationship ManyToMany {
-  Todo{tags(name)} to Tag{todos}
+  Todo{tag(name)} to Tag{todo}
 }
 
 dto * with mapstruct

@@ -12,10 +12,10 @@ import { ITodo, Todo } from '../todo.model';
 import { TodoService } from '../service/todo.service';
 import { ICategory } from 'app/entities/category/category.model';
 import { CategoryService } from 'app/entities/category/service/category.service';
-import { ITodoList } from 'app/entities/todo-list/todo-list.model';
-import { TodoListService } from 'app/entities/todo-list/service/todo-list.service';
 import { ITag } from 'app/entities/tag/tag.model';
 import { TagService } from 'app/entities/tag/service/tag.service';
+import { ITodoList } from 'app/entities/todo-list/todo-list.model';
+import { TodoListService } from 'app/entities/todo-list/service/todo-list.service';
 
 @Component({
   selector: 'jhi-todo-update',
@@ -25,8 +25,8 @@ export class TodoUpdateComponent implements OnInit {
   isSaving = false;
 
   categoriesSharedCollection: ICategory[] = [];
-  todoListsSharedCollection: ITodoList[] = [];
   tagsSharedCollection: ITag[] = [];
+  todoListsSharedCollection: ITodoList[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -38,15 +38,15 @@ export class TodoUpdateComponent implements OnInit {
     priority: [],
     dueDate: [],
     category: [],
-    todoList: [],
     tags: [],
+    todoList: [],
   });
 
   constructor(
     protected todoService: TodoService,
     protected categoryService: CategoryService,
-    protected todoListService: TodoListService,
     protected tagService: TagService,
+    protected todoListService: TodoListService,
     protected activatedRoute: ActivatedRoute,
     protected fb: FormBuilder
   ) {}
@@ -82,11 +82,11 @@ export class TodoUpdateComponent implements OnInit {
     return item.id!;
   }
 
-  trackTodoListById(index: number, item: ITodoList): number {
+  trackTagById(index: number, item: ITag): number {
     return item.id!;
   }
 
-  trackTagById(index: number, item: ITag): number {
+  trackTodoListById(index: number, item: ITodoList): number {
     return item.id!;
   }
 
@@ -131,13 +131,13 @@ export class TodoUpdateComponent implements OnInit {
       priority: todo.priority,
       dueDate: todo.dueDate ? todo.dueDate.format(DATE_TIME_FORMAT) : null,
       category: todo.category,
-      todoList: todo.todoList,
       tags: todo.tags,
+      todoList: todo.todoList,
     });
 
     this.categoriesSharedCollection = this.categoryService.addCategoryToCollectionIfMissing(this.categoriesSharedCollection, todo.category);
-    this.todoListsSharedCollection = this.todoListService.addTodoListToCollectionIfMissing(this.todoListsSharedCollection, todo.todoList);
     this.tagsSharedCollection = this.tagService.addTagToCollectionIfMissing(this.tagsSharedCollection, ...(todo.tags ?? []));
+    this.todoListsSharedCollection = this.todoListService.addTodoListToCollectionIfMissing(this.todoListsSharedCollection, todo.todoList);
   }
 
   protected loadRelationshipsOptions(): void {
@@ -151,6 +151,12 @@ export class TodoUpdateComponent implements OnInit {
       )
       .subscribe((categories: ICategory[]) => (this.categoriesSharedCollection = categories));
 
+    this.tagService
+      .query()
+      .pipe(map((res: HttpResponse<ITag[]>) => res.body ?? []))
+      .pipe(map((tags: ITag[]) => this.tagService.addTagToCollectionIfMissing(tags, ...(this.editForm.get('tags')!.value ?? []))))
+      .subscribe((tags: ITag[]) => (this.tagsSharedCollection = tags));
+
     this.todoListService
       .query()
       .pipe(map((res: HttpResponse<ITodoList[]>) => res.body ?? []))
@@ -160,12 +166,6 @@ export class TodoUpdateComponent implements OnInit {
         )
       )
       .subscribe((todoLists: ITodoList[]) => (this.todoListsSharedCollection = todoLists));
-
-    this.tagService
-      .query()
-      .pipe(map((res: HttpResponse<ITag[]>) => res.body ?? []))
-      .pipe(map((tags: ITag[]) => this.tagService.addTagToCollectionIfMissing(tags, ...(this.editForm.get('tags')!.value ?? []))))
-      .subscribe((tags: ITag[]) => (this.tagsSharedCollection = tags));
   }
 
   protected createFromForm(): ITodo {
@@ -180,8 +180,8 @@ export class TodoUpdateComponent implements OnInit {
       priority: this.editForm.get(['priority'])!.value,
       dueDate: this.editForm.get(['dueDate'])!.value ? dayjs(this.editForm.get(['dueDate'])!.value, DATE_TIME_FORMAT) : undefined,
       category: this.editForm.get(['category'])!.value,
-      todoList: this.editForm.get(['todoList'])!.value,
       tags: this.editForm.get(['tags'])!.value,
+      todoList: this.editForm.get(['todoList'])!.value,
     };
   }
 }

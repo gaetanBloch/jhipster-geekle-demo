@@ -1,9 +1,6 @@
 package io.gbloch.tododemo.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
@@ -30,10 +27,6 @@ public class Category implements Serializable {
     @Size(min = 3)
     @Column(name = "description", nullable = false)
     private String description;
-
-    @OneToMany(mappedBy = "category")
-    @JsonIgnoreProperties(value = { "category", "todoList", "tags" }, allowSetters = true)
-    private Set<Todo> todos = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -73,37 +66,6 @@ public class Category implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Set<Todo> getTodos() {
-        return this.todos;
-    }
-
-    public Category todos(Set<Todo> todos) {
-        this.setTodos(todos);
-        return this;
-    }
-
-    public Category addTodos(Todo todo) {
-        this.todos.add(todo);
-        todo.setCategory(this);
-        return this;
-    }
-
-    public Category removeTodos(Todo todo) {
-        this.todos.remove(todo);
-        todo.setCategory(null);
-        return this;
-    }
-
-    public void setTodos(Set<Todo> todos) {
-        if (this.todos != null) {
-            this.todos.forEach(i -> i.setCategory(null));
-        }
-        if (todos != null) {
-            todos.forEach(i -> i.setCategory(this));
-        }
-        this.todos = todos;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

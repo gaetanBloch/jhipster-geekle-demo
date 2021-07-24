@@ -14,14 +14,7 @@
       "fieldValidateRulesMinlength": "3"
     }
   ],
-  "relationships": [
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "todo",
-      "otherEntityRelationshipName": "category",
-      "relationshipName": "todos"
-    }
-  ],
+  "relationships": [],
   "entityTableName": "category",
   "dto": "mapstruct",
   "pagination": "infinite-scroll",

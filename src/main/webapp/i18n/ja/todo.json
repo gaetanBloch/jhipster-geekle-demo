@@ -26,8 +26,8 @@
       "priority": "Priority",
       "dueDate": "Due Date",
       "category": "Category",
-      "todoList": "Todo List",
-      "tags": "Tags"
+      "tag": "Tag",
+      "todoList": "Todo List"
     }
   }
 }

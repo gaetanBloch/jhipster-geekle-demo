@@ -21,7 +21,8 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "todo",
       "otherEntityRelationshipName": "todoList",
-      "relationshipName": "todos"
+      "relationshipName": "todos",
+      "otherEntityField": "name"
     }
   ],
   "entityTableName": "todo_list",

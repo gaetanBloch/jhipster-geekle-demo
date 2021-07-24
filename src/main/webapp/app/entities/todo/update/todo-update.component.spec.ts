@@ -11,10 +11,10 @@ import { TodoService } from '../service/todo.service';
 import { ITodo, Todo } from '../todo.model';
 import { ICategory } from 'app/entities/category/category.model';
 import { CategoryService } from 'app/entities/category/service/category.service';
-import { ITodoList } from 'app/entities/todo-list/todo-list.model';
-import { TodoListService } from 'app/entities/todo-list/service/todo-list.service';
 import { ITag } from 'app/entities/tag/tag.model';
 import { TagService } from 'app/entities/tag/service/tag.service';
+import { ITodoList } from 'app/entities/todo-list/todo-list.model';
+import { TodoListService } from 'app/entities/todo-list/service/todo-list.service';
 
 import { TodoUpdateComponent } from './todo-update.component';
 
@@ -25,8 +25,8 @@ describe('Component Tests', () => {
     let activatedRoute: ActivatedRoute;
     let todoService: TodoService;
     let categoryService: CategoryService;
-    let todoListService: TodoListService;
     let tagService: TagService;
+    let todoListService: TodoListService;
 
     beforeEach(() => {
       TestBed.configureTestingModule({
@@ -41,8 +41,8 @@ describe('Component Tests', () => {
       activatedRoute = TestBed.inject(ActivatedRoute);
       todoService = TestBed.inject(TodoService);
       categoryService = TestBed.inject(CategoryService);
-      todoListService = TestBed.inject(TodoListService);
       tagService = TestBed.inject(TagService);
+      todoListService = TestBed.inject(TodoListService);
 
       comp = fixture.componentInstance;
     });
@@ -67,25 +67,6 @@ describe('Component Tests', () => {
         expect(comp.categoriesSharedCollection).toEqual(expectedCollection);
       });
 
-      it('Should call TodoList query and add missing value', () => {
-        const todo: ITodo = { id: 456 };
-        const todoList: ITodoList = { id: 53441 };
-        todo.todoList = todoList;
-
-        const todoListCollection: ITodoList[] = [{ id: 89133 }];
-        jest.spyOn(todoListService, 'query').mockReturnValue(of(new HttpResponse({ body: todoListCollection })));
-        const additionalTodoLists = [todoList];
-        const expectedCollection: ITodoList[] = [...additionalTodoLists, ...todoListCollection];
-        jest.spyOn(todoListService, 'addTodoListToCollectionIfMissing').mockReturnValue(expectedCollection);
-
-        activatedRoute.data = of({ todo });
-        comp.ngOnInit();
-
-        expect(todoListService.query).toHaveBeenCalled();
-        expect(todoListService.addTodoListToCollectionIfMissing).toHaveBeenCalledWith(todoListCollection, ...additionalTodoLists);
-        expect(comp.todoListsSharedCollection).toEqual(expectedCollection);
-      });
-
       it('Should call Tag query and add missing value', () => {
         const todo: ITodo = { id: 456 };
         const tags: ITag[] = [{ id: 21525 }];
@@ -105,22 +86,41 @@ describe('Component Tests', () => {
         expect(comp.tagsSharedCollection).toEqual(expectedCollection);
       });
 
+      it('Should call TodoList query and add missing value', () => {
+        const todo: ITodo = { id: 456 };
+        const todoList: ITodoList = { id: 53441 };
+        todo.todoList = todoList;
+
+        const todoListCollection: ITodoList[] = [{ id: 89133 }];
+        jest.spyOn(todoListService, 'query').mockReturnValue(of(new HttpResponse({ body: todoListCollection })));
+        const additionalTodoLists = [todoList];
+        const expectedCollection: ITodoList[] = [...additionalTodoLists, ...todoListCollection];
+        jest.spyOn(todoListService, 'addTodoListToCollectionIfMissing').mockReturnValue(expectedCollection);
+
+        activatedRoute.data = of({ todo });
+        comp.ngOnInit();
+
+        expect(todoListService.query).toHaveBeenCalled();
+        expect(todoListService.addTodoListToCollectionIfMissing).toHaveBeenCalledWith(todoListCollection, ...additionalTodoLists);
+        expect(comp.todoListsSharedCollection).toEqual(expectedCollection);
+      });
+
       it('Should update editForm', () => {
         const todo: ITodo = { id: 456 };
         const category: ICategory = { id: 75298 };
         todo.category = category;
-        const todoList: ITodoList = { id: 89003 };
-        todo.todoList = todoList;
         const tags: ITag = { id: 98320 };
         todo.tags = [tags];
+        const todoList: ITodoList = { id: 89003 };
+        todo.todoList = todoList;
 
         activatedRoute.data = of({ todo });
         comp.ngOnInit();
 
         expect(comp.editForm.value).toEqual(expect.objectContaining(todo));
         expect(comp.categoriesSharedCollection).toContain(category);
-        expect(comp.todoListsSharedCollection).toContain(todoList);
         expect(comp.tagsSharedCollection).toContain(tags);
+        expect(comp.todoListsSharedCollection).toContain(todoList);
       });
     });
 
@@ -197,18 +197,18 @@ describe('Component Tests', () => {
         });
       });
 
-      describe('trackTodoListById', () => {
-        it('Should return tracked TodoList primary key', () => {
-          const entity = { id: 123 };
-          const trackResult = comp.trackTodoListById(0, entity);
-          expect(trackResult).toEqual(entity.id);
-        });
-      });
-
       describe('trackTagById', () => {
         it('Should return tracked Tag primary key', () => {
           const entity = { id: 123 };
           const trackResult = comp.trackTagById(0, entity);
+          expect(trackResult).toEqual(entity.id);
+        });
+      });
+
+      describe('trackTodoListById', () => {
+        it('Should return tracked TodoList primary key', () => {
+          const entity = { id: 123 };
+          const trackResult = comp.trackTodoListById(0, entity);
           expect(trackResult).toEqual(entity.id);
         });
       });

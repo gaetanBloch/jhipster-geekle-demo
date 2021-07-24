@@ -27,7 +27,7 @@ public class Tag implements Serializable {
     private String name;
 
     @ManyToMany(mappedBy = "tags")
-    @JsonIgnoreProperties(value = { "category", "todoList", "tags" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "category", "tags", "todoList" }, allowSetters = true)
     private Set<Todo> todos = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -66,13 +66,13 @@ public class Tag implements Serializable {
         return this;
     }
 
-    public Tag addTodos(Todo todo) {
+    public Tag addTodo(Todo todo) {
         this.todos.add(todo);
         todo.getTags().add(this);
         return this;
     }
 
-    public Tag removeTodos(Todo todo) {
+    public Tag removeTodo(Todo todo) {
         this.todos.remove(todo);
         todo.getTags().remove(this);
         return this;
@@ -80,10 +80,10 @@ public class Tag implements Serializable {
 
     public void setTodos(Set<Todo> todos) {
         if (this.todos != null) {
-            this.todos.forEach(i -> i.removeTags(this));
+            this.todos.forEach(i -> i.removeTag(this));
         }
         if (todos != null) {
-            todos.forEach(i -> i.addTags(this));
+            todos.forEach(i -> i.addTag(this));
         }
         this.todos = todos;
     }
