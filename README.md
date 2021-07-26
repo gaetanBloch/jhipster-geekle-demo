@@ -1,12 +1,17 @@
-# JHipster Configuration options
+# JHipster Configuration Options
 
-![Configuration](https://i.imgur.com/ZGqBwre.png)
+![conf](https://i.imgur.com/ZGqBwre.png)
 
 # JHipster JDL Schema
 
-![Schema](https://i.imgur.com/YfnFvbI.png)
+![jdl-schema](https://i.imgur.com/YfnFvbI.png)
 
-# JHipster JSON configuration
+# JHipster JDL Configuration
+
+![jdl-conf](https://i.imgur.com/9iJI7iT.png)
+
+
+# JHipster JSON Configuration
 
 ```json
 {
