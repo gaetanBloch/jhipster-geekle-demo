@@ -6,6 +6,61 @@
 
 ![Schema](https://i.imgur.com/YfnFvbI.png)
 
+# JHipster JSON configuration
+
+```json
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "baseName": "todoDemo",
+    "jhipsterVersion": "7.1.0",
+    "skipClient": false,
+    "skipServer": false,
+    "skipUserManagement": false,
+    "skipCheckLengthOfIdentifier": false,
+    "skipFakeData": false,
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "testFrameworks": ["cypress", "gatling", "cucumber"],
+    "blueprints": [],
+    "otherModules": [],
+    "pages": [],
+    "creationTimestamp": 1627051217967,
+    "serviceDiscoveryType": false,
+    "reactive": false,
+    "authenticationType": "jwt",
+    "packageName": "io.gbloch.tododemo",
+    "serverPort": "8080",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "buildTool": "maven",
+    "serverSideOptions": [],
+    "websocket": false,
+    "searchEngine": false,
+    "messageBroker": false,
+    "enableSwaggerCodegen": false,
+    "clientFramework": "angularX",
+    "withAdminUi": true,
+    "clientTheme": "none",
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "packageFolder": "io/gbloch/tododemo",
+    "jwtSecretKey": "SECRET",
+    "devServerPort": 4200,
+    "clientPackageManager": "npm",
+    "clientThemeVariant": "",
+    "languages": ["en", "fr", "ja"],
+    "cypressCoverage": true,
+    "entities": ["TodoList", "Todo", "Category", "Tag"],
+    "lastLiquibaseTimestamp": 1627142322000
+  }
+}
+```
+
 # todoDemo
 
 This application was generated using JHipster 7.1.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v7.1.0](https://www.jhipster.tech/documentation-archive/v7.1.0).
