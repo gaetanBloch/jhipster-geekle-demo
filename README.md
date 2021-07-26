@@ -1,6 +1,10 @@
-# Jhipster Configuration options
+# JHipster Configuration options
 
 ![Configuration](https://i.imgur.com/ZGqBwre.png)
+
+# JHipster JDL Schema
+
+![Schema](https://i.imgur.com/YfnFvbI.png)
 
 # todoDemo
 
