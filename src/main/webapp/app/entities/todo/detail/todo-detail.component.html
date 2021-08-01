@@ -14,7 +14,7 @@
         <dd>
           <span>{{ todo.id }}</span>
         </dd>
-        <dt><span jhiTranslate="todoDemoApp.todo.name">Name</span></dt>
+        <dt><span jhiTranslate="todoDemoApp.todo.name" [ngbTooltip]="'todoDemoApp.todo.help.name' | translate">Name</span></dt>
         <dd>
           <span>{{ todo.name }}</span>
         </dd>

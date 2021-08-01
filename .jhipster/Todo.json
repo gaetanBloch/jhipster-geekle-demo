@@ -4,6 +4,7 @@
     {
       "fieldName": "name",
       "fieldType": "String",
+      "javadoc": "Todo task name",
       "fieldValidateRules": ["required", "minlength"],
       "fieldValidateRulesMinlength": "3"
     },
@@ -72,5 +73,6 @@
   "readOnly": false,
   "embedded": false,
   "applications": "*",
-  "changelogDate": "20210724155840"
+  "changelogDate": "20210724155840",
+  "javadoc": "Todo Task"
 }

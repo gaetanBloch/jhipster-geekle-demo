@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-class CategoryServiceImpl implements CategoryService {
+public class CategoryServiceImpl implements CategoryService {
 
     private final Logger log = LoggerFactory.getLogger(CategoryServiceImpl.class);
 

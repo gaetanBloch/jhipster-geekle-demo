@@ -1,6 +1,8 @@
 package io.gbloch.tododemo.service.dto;
 
 import io.gbloch.tododemo.domain.enumeration.Priority;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
@@ -11,12 +13,17 @@ import javax.validation.constraints.*;
 /**
  * A DTO for the {@link io.gbloch.tododemo.domain.Todo} entity.
  */
+@ApiModel(description = "Todo Task")
 public class TodoDTO implements Serializable {
 
     private Long id;
 
+    /**
+     * Todo task name
+     */
     @NotNull
     @Size(min = 3)
+    @ApiModelProperty(value = "Todo task name", required = true)
     private String name;
 
     @Size(min = 3)

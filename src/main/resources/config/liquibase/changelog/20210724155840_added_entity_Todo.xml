@@ -10,11 +10,11 @@
         Added the entity Todo.
     -->
     <changeSet id="20210724155840-1" author="jhipster">
-        <createTable tableName="todo">
+        <createTable tableName="todo" remarks="Todo Task">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="name" type="varchar(255)">
+            <column name="name" type="varchar(255)" remarks="Todo task name">
                 <constraints nullable="false" />
             </column>
             <column name="description" type="varchar(255)">

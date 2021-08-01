@@ -10,7 +10,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 /**
- * A Todo.
+ * Todo Task
  */
 @Entity
 @Table(name = "todo")
@@ -23,6 +23,9 @@ public class Todo implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
+    /**
+     * Todo task name
+     */
     @NotNull
     @Size(min = 3)
     @Column(name = "name", nullable = false)

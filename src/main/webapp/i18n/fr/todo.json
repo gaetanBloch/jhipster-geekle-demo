@@ -27,7 +27,10 @@
       "dueDate": "Due Date",
       "category": "Category",
       "tag": "Tag",
-      "todoList": "Todo List"
+      "todoList": "Todo List",
+      "help": {
+        "name": "Todo task name"
+      }
     }
   }
 }
