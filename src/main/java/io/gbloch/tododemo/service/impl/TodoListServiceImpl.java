@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class TodoListServiceImpl implements TodoListService {
+class TodoListServiceImpl implements TodoListService {
 
     private final Logger log = LoggerFactory.getLogger(TodoListServiceImpl.class);
 

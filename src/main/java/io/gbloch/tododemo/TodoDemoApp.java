@@ -77,7 +77,7 @@ public class TodoDemoApp {
             .ofNullable(env.getProperty("server.servlet.context-path"))
             .filter(StringUtils::isNotBlank)
             .orElse("/");
-        String hostAddress = "localhost";
+        var hostAddress = "localhost";
         try {
             hostAddress = InetAddress.getLocalHost().getHostAddress();
         } catch (UnknownHostException e) {

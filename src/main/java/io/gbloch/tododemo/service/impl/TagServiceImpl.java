@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class TagServiceImpl implements TagService {
+class TagServiceImpl implements TagService {
 
     private final Logger log = LoggerFactory.getLogger(TagServiceImpl.class);
 

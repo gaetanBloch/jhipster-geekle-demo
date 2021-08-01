@@ -1,9 +1,9 @@
 {
   "name": "todo-demo",
   "version": "0.0.1-SNAPSHOT",
-  "private": true,
-  "description": "Description for todoDemo",
-  "license": "UNLICENSED",
+  "private": false,
+  "description": "Demonstration project for Geekle Architecture Summit",
+  "license": "MIT",
   "scripts": {
     "prettier:check": "prettier --check \"{,src/**/,webpack/}*.{md,json,yml,html,js,ts,tsx,css,scss,java}\"",
     "prettier:format": "prettier --write \"{,src/**/,webpack/}*.{md,json,yml,html,js,ts,tsx,css,scss,java}\"",
