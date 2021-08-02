@@ -35,7 +35,7 @@ jobs:
                   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
               run: |
                   if [ ! -z "$SONAR_TOKEN" ]; then
-                      ./mvnw -ntp initialize sonar:sonar -Dsonar.organization=gbloch -Dsonar.host.url=https://sonarcloud.io
+                      ./mvnw -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
                   else
                       echo No SONAR_TOKEN, skipping...
                   fi

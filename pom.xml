@@ -85,6 +85,9 @@
         <lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
         <properties-maven-plugin.version>1.0.0</properties-maven-plugin.version>
         <sonar-maven-plugin.version>3.9.0.2155</sonar-maven-plugin.version>
+        <sonar.projectKey>gaetanBloch_todo-demo-angular</sonar.projectKey>
+        <sonar.organization>gbloch</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <!-- jhipster-needle-maven-property -->
     </properties>
 
