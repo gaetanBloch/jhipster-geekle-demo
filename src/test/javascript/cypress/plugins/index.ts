@@ -34,6 +34,7 @@ module.exports = (on, config) => {
     }),
     pa11y: pa11y(),
   });
+  /* eslint @typescript-eslint/no-var-requires: "off" */
   require('@cypress/code-coverage/task')(on, config);
   return config;
 };

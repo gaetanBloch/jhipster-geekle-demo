@@ -20,6 +20,7 @@
     "project": "./tsconfig.json"
   },
   "rules": {
+    //    "@typescript-eslint/no-var-requires": 0,
     "@angular-eslint/component-selector": [
       "error",
       {
