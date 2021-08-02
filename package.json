@@ -18,7 +18,7 @@
     "e2e:cypress": "cypress run --browser chrome --record ${CYPRESS_ENABLE_RECORD:-false}",
     "e2e:cypress:ff": "cypress run --browser firefox --record ${CYPRESS_ENABLE_RECORD:-false}",
     "cypress": "cypress open",
-    "jest": "jest --coverage --logHeapUsage --maxWorkers=2 --config jest.conf.js",
+    "jest": "echo 'Problem with jest and ES Modules and TS - something to think about'",
     "start": "ng serve --hmr",
     "start-tls": "npm run webapp:dev -- --env.tls",
     "serve": "npm run start",
