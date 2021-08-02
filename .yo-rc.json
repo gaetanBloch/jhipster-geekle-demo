@@ -46,6 +46,9 @@
     "cypressCoverage": true,
     "entities": ["TodoList", "Todo", "Category", "Tag"],
     "lastLiquibaseTimestamp": 1627142322000,
-    "packages": []
+    "packages": [],
+    "herokuAppName": "mysterious-island-52096",
+    "herokuDeployType": "git",
+    "herokuJavaVersion": "11"
   }
 }
