@@ -12,7 +12,7 @@
 
 eureka:
   instance:
-    hostname: mysterious-island-52096.herokuapp.com
+    hostname: gbloch-geekle-todo.herokuapp.com
     non-secure-port: 80
     prefer-ip-address: false
 

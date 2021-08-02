@@ -47,8 +47,8 @@
     "entities": ["TodoList", "Todo", "Category", "Tag"],
     "lastLiquibaseTimestamp": 1627142322000,
     "packages": [],
-    "herokuAppName": "mysterious-island-52096",
-    "herokuDeployType": "git",
+    "herokuAppName": "gbloch-geekle-todo",
+    "herokuDeployType": "jar",
     "herokuJavaVersion": "11"
   }
 }
