@@ -316,6 +316,14 @@
             <artifactId>cucumber-spring</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!--Gatling-->
+        <dependency>
+            <groupId>io.gatling.highcharts</groupId>
+            <artifactId>gatling-charts-highcharts</artifactId>
+            <version>3.6.1</version>
+            <scope>test</scope>
+        </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
     </dependencies>
 
@@ -389,6 +397,16 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>properties-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>io.gatling</groupId>
+                <artifactId>gatling-maven-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <runMultipleSimulations>true</runMultipleSimulations>
+                    <resourcesFolder>${project.basedir}/src/test/gatling/conf</resourcesFolder>
+                    <simulationsFolder>${project.basedir}/src/test/gatling/user-files/simulations</simulationsFolder>
+                </configuration>
             </plugin>
             <!-- jhipster-needle-maven-add-plugin -->
         </plugins>
