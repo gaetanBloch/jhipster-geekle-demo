@@ -838,6 +838,28 @@
     </build>
     <profiles>
         <profile>
+            <id>dep-check</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.owasp</groupId>
+                        <artifactId>dependency-check-maven</artifactId>
+                        <version>6.2.2</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
             <id>no-liquibase</id>
             <properties>
                 <profile.no-liquibase>,no-liquibase</profile.no-liquibase>
