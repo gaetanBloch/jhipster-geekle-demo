@@ -45,6 +45,7 @@
     "languages": ["en", "fr", "ja"],
     "cypressCoverage": true,
     "entities": ["TodoList", "Todo", "Category", "Tag"],
-    "lastLiquibaseTimestamp": 1627142322000
+    "lastLiquibaseTimestamp": 1627142322000,
+    "packages": []
   }
 }
