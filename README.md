@@ -2,6 +2,10 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=todoDemo&metric=coverage&token=92c2db6f780ba57f20c338f7537a0f7ba40b54ea)](https://sonarcloud.io/dashboard?id=todoDemo)
 [![geekle-todo](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/gsebq7&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/gsebq7/runs)
 
+## Deployed App on Heroku
+
+https://gbloch-geekle-todo.herokuapp.com/
+
 # JHipster Configuration Options
 
 ![conf](https://i.imgur.com/ZGqBwre.png)
