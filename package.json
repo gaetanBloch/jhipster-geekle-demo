@@ -100,7 +100,7 @@
     "@ngx-translate/core": "13.0.0",
     "@ngx-translate/http-loader": "6.0.0",
     "bootstrap": "4.6.0",
-    "dayjs": "1.10.5",
+    "dayjs": "1.10.7",
     "ngx-infinite-scroll": "10.0.1",
     "ngx-webstorage": "8.0.0",
     "rxjs": "6.6.7",
