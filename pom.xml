@@ -60,7 +60,7 @@
         <validation-api.version>2.0.1.Final</validation-api.version>
         <jaxb-runtime.version>2.3.3</jaxb-runtime.version>
         <archunit-junit5.version>0.19.0</archunit-junit5.version>
-        <mapstruct.version>1.5.1.Final</mapstruct.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
         <!-- Plugin versions -->
         <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
         <maven-site-plugin.version>3.9.1</maven-site-plugin.version>
